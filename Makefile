@@ -1,7 +1,7 @@
 NAME = sample-app
 PORT_CONTAINER = 5000
 PORT_HOST = 5001
-AWS_ACC_ID = $(shell aws sts get-caller-identity | jq .Account)
+AWS_ACC_ID = $(shell aws sts get-caller-identity | jq .Account -r)
 REGION = us-east-1
 REGISTRY_URL = ${AWS_ACC_ID}.dkr.ecr.${REGION}.amazonaws.com
 GIT_HASH = $(shell git rev-parse --short HEAD)
